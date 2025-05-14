@@ -11,7 +11,9 @@ basketball_ai_agent/
 │   └── processed/         # Processed data
 ├── src/                   # Source code
 │   ├── data/             # Data processing modules
-│   ├── models/           # AI models and decision making
+│   ├── decision/         # Decision making system
+│   │   ├── decision_maker.py  # Core decision making logic
+│   │   └── example.py    # Usage examples
 │   ├── rules/            # Basketball rules implementation
 │   │   ├── metrics.py    # Core metrics and position calculations
 │   │   ├── rules_engine.py # Rule implementation and evaluation
@@ -68,11 +70,16 @@ The input data should contain:
    - Context evaluation
    - Real-time rule compliance checking
 
-3. **Decision Making** (In Progress)
-   - Strategy selection
-   - Action recommendation
-   - Performance metrics calculation
-   - Real-time tactical suggestions
+3. **Decision Making** (Implemented)
+   - Action generation for both offensive and defensive situations
+   - Priority-based action selection
+   - Position calculation for optimal player movement
+   - Support for multiple action types:
+     - Movement actions
+     - Passing actions
+     - Shooting actions
+     - Defensive actions
+   - Real-time tactical suggestions based on game state
 
 ## Implementation Details
 
@@ -90,6 +97,15 @@ The system evaluates:
 - Zone assignments
 - Rebound opportunities
 
+### Decision Making
+The system provides:
+- Prioritized action recommendations
+- Position calculations for optimal spacing
+- Defensive hole filling strategies
+- Help defense positioning
+- Attack position optimization
+- Ball possession management
+
 ### Metrics
 - Distance calculations between players
 - Space occupation calculations
@@ -101,14 +117,17 @@ The system evaluates:
 
 To run the example:
 ```bash
-python -m src.rules.example
+python -m src.decision.example
 ```
 
-This will demonstrate the rule engine's evaluation of a sample game state, showing which rules are being followed (✓) and which are being violated (✗).
+This will demonstrate the decision-making system's analysis of a sample game state, showing recommended actions for both teams with their respective priorities.
 
 ## Future Development
 - [ ] Add visualization tools for game state analysis
 - [ ] Implement real-time data processing pipeline
 - [ ] Add machine learning models for strategy optimization
 - [ ] Develop API for real-time game analysis
-- [ ] Add support for different basketball rule sets 
+- [ ] Add support for different basketball rule sets
+- [ ] Implement action execution simulation
+- [ ] Add performance metrics tracking
+- [ ] Develop strategy optimization algorithms 
